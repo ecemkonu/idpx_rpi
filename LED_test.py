@@ -17,10 +17,10 @@ while True:
     print("Value of vrx: ", vrx_value)
     print("Value of vry: ", vry_value) 
 
-    if value == None:
-         value = 0
-    elif value > 0.05: 
+    if vrx_value == None:
+         vrx_value = 0
+    elif vrx_value > 0.05: 
           board.digital[led].write(1) 
-          sleep(value) 
+          sleep(vrx_value) 
           board.digital[led].write(0) 
-          sleep(value)
+          sleep(vrx_value)

@@ -4,18 +4,22 @@ board = Arduino('/dev/ttyUSB0')
 led = 9
 it = util.Iterator(board) 
 it.start()
-vrx = 0
-vry = 1
-sw = 5
-board.analog[vrx].enable_reporting()
-board.analog[vry].enable_reporting()
+vrx_pin = 0
+vry_pin = 1
+sw_pin = 5
+board.analog[vrx_pin].enable_reporting()
+board.analog[vry_pin].enable_reporting()
 
 while True: 
-     value = board.analog[0].read() 
-     print(value) 
-     if value == None: 
-          value = 0
-     elif value > 0.05: 
+    vrx_value = board.analog[vrx_pin].read()
+    vry_value = board.analog[vry_pin].read() 
+
+    print("Value of vrx: ", vrx_value)
+    print("Value of vry: ", vry_value) 
+
+    if value == None:
+         value = 0
+    elif value > 0.05: 
           board.digital[led].write(1) 
           sleep(value) 
           board.digital[led].write(0) 

@@ -82,24 +82,30 @@ def diagnostic_found():
     text2.value = 'Diagnostic found, do you want to walk through?'
     combo2 = Combo(option2, options=["Yes", "No"], align="bottom", command=show_diagnostic)
 
-app = App("Maintanance Helper", layout="grid")
+app = App("Maintanance Helper")
 
 # Create a blank list to hold all the different screens
 all_screens = []
 
+# Add space at the top of the buttons
+spacer_box = Text(app, text="", width=30, height=1)
+
 # Create a box to contain the menu buttons
-menu = Box(app, grid=[0,0], layout="grid")
+menu = Box(app)
 menu.tk.width = 900
 menu.bg = "light blue"
 
+# Add space at the bottom of the buttons
+spacer_box_2 = Text(app, text="", width=30, height=1)
+
 # Option 0 box
-option0 = Box(app, width='fill', grid=[1,1])
+option0 = Box(app, width='fill')
 text0 = Text(option0, "Welcome to the Maintanance Helper")
 all_screens.append(option0)
 
 
 # Option 1 box
-option1 = Box(app, width='fill', grid=[1,1])
+option1 = Box(app, width='fill')
 ### light one of the leds randomly
 
 text1 = Text(option1, text="Select the error that you want to fix", align="bottom")
@@ -107,22 +113,22 @@ combo = Combo(option1, options=["E1", "E2", "E3"], align="bottom", command=show_
 all_screens.append(option1)
 
 # Option 2 box
-option2 = Box(app, grid=[1,1])
+option2 = Box(app)
 text2 = Text(option2, text="Running Diagnostic...")
 all_screens.append(option2)
 
 # Option 3 box
-option3 = Box(app, grid=[1,1])
+option3 = Box(app)
 text3 = Text(option3)
 all_screens.append(option3)
 
 # Option 4 box
-option4 = Box(app, grid=[1,1])
+option4 = Box(app)
 text4 = Text(option4)
 all_screens.append(option4)
 
 # Option 5 box
-option5 = Box(app, grid =[1,1])
+option5 = Box(app)
 text5 = Text(option5)
 text6 = Text(option5)
 text7 = Text(option5)

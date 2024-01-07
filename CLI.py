@@ -3,8 +3,9 @@ from gpiozero import LED
 import random
 
 led_pins = [17, 22, 23]
-button_pins = [12, 14, 17]
+button_pins = [5, 6, 16]
 leds = []
+buttons = []
 
 for led_pin in led_pins:
     leds.append(LED(led_pin))
@@ -18,6 +19,9 @@ def switch_screen(switch_to):
     switch_to.show()
     if switch_to == option2:
         text2.after(2000, diagnostic_found)
+    if switch_to == option0:
+        light_led_at_random()
+
     
 def hide_all():
     for screen in all_screens:
@@ -26,41 +30,53 @@ def hide_all():
 def show_routine(selected_value):
     #set one of the lights randomly before
     if selected_value == "E1":
-        text3.value = "You chose...wisely"
+        routine_1()
+    elif selected_value == "E2":
+        routine_2()
     else:
-        text3.value = "You chose...poorly"
-    switch_screen(option3)
+        routine_3()
 
 def diagnostic_1():
+
     ## Press button 1
     ## Press button 3
     ## Rotate arm , write it as text and then rotate, say its completed without logic
-
     None
 
 def diagnostic_2():
     ## Controller to up
     ## Press button 2
     ## controller to left
-    None
 
+    None
 
 def routine_1():
-    None
+    text5 = "Press B1 once"
+    text6 = "Turn rotating arm clockwise for 1 turn"
+    text7 = "Press B3 twice"
+    switch_screen(option5)
+    leds[0].off()
 
 def routine_2():
-    None
+    text5 = "Turn rotating arm anti-clockwise for 1 turn"
+    text6 = "Press B2 twice"
+    text7 = "Turn rotating arm to the left"
+    switch_screen(option5)
+    leds[1].off()
 
 def routine_3():
-    None
+    text5 = "Press B3 once"
+    text6 = "Turn the rotating arm to the right"
+    text7 = "Press B1 once"
+    switch_screen(option5)
+    leds[2].off()
 
 def show_diagnostic(selected_value):
     if selected_value == "Yes":
-        text4.value= "Step 1:"
+        text4.value= "Step 1: "
         switch_screen(option4)
     else:
         switch_screen(option0)
-        light_led_at_random()
 
 def diagnostic_found():
     text2.value = 'Diagnostic found, do you want to walk through?'
@@ -93,7 +109,6 @@ all_screens.append(option1)
 # Option 2 box
 option2 = Box(app, grid=[1,1])
 text2 = Text(option2, text="Running Diagnostic...")
-slider = Slider(option2)
 all_screens.append(option2)
 
 # Option 3 box
@@ -105,6 +120,14 @@ all_screens.append(option3)
 option4 = Box(app, grid=[1,1])
 text4 = Text(option4)
 all_screens.append(option4)
+
+# Option 5 box
+option5 = Box(app, grid =[1,1])
+text5 = Text(option5)
+text6 = Text(option5)
+text7 = Text(option5)
+button5 = PushButton(option5, text="Complete", command=switch_screen, args=[option0])
+all_screens.append(option5)
 
 # Add the screens to the menu box
 option1_button = PushButton(menu, text="Maintanance Routines", command=switch_screen, args=[option1], grid=[0,0], align="left")

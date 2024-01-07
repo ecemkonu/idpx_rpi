@@ -136,8 +136,11 @@ button5 = PushButton(option5, text="Complete", command=switch_screen, args=[opti
 all_screens.append(option5)
 
 # Add the screens to the menu box
-option1_button = PushButton(menu, text="Maintanance Routines", command=switch_screen, args=[option1], grid=[0,0], align="left")
-option2_button = PushButton(menu, text="Run Diagnostics", command=switch_screen, args=[option2], grid=[1,0], align="left")
+option1_button = PushButton(menu, text="Maintanance Routines", command=switch_screen, args=[option1], align="left")
+option1_button.width = 20
+
+option2_button = PushButton(menu, text="Run Diagnostics", command=switch_screen, args=[option2], align="left")
+option2_button.width = 20
 
 # Hide all screens and then show the first one
 hide_all()

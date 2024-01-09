@@ -61,13 +61,13 @@ def d1_s3():
     text4.value = "Step 3: Press button 3"
 def d1_s2():
     text4.value = "Step 2: Rotate the arm to the left"
-    text4.after(500, d1_s3)
+    text4.after(2000, d1_s3)
 
 def diagnostic_1():
     prev_state = button_states[0]
     text4.value= "Step 1: Press Button 1"
     switch_screen(option4)
-    text4.after(500, d1_s2)
+    text4.after(2000, d1_s2)
 
 def diagnostic_2():
     text4.value = "Step 1: Press Button 3"

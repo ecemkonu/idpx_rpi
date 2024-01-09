@@ -73,9 +73,7 @@ def routine_2():
     leds[1].off()
 
 def routine_3():
-    text5 = "Press B3 once"
-    text6 = "Turn the rotating arm to the right"
-    text7 = "Press B1 once"
+    text5 = "Press B3 once"+ "/n" + "Turn the rotating arm to the right"+ "/n" + "Press B1 once"
     switch_screen(option5)
     leds[2].off()
 
@@ -115,7 +113,7 @@ all_screens.append(option0)
 
 
 # Option 1 box
-option1 = Box(app, width='fill', grid=[1,1])
+option1 = Box(app, width='fill')
 ### light one of the leds randomly
 
 text1 = Text(option1, text="Select the error that you want to fix", align="bottom")
@@ -140,8 +138,6 @@ all_screens.append(option4)
 # Option 5 box
 option5 = Box(app)
 text5 = Text(option5)
-text6 = Text(option5)
-text7 = Text(option5)
 button5 = PushButton(option5, text="Complete", command=switch_screen, args=[option0])
 all_screens.append(option5)
 

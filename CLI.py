@@ -59,21 +59,23 @@ def diagnostic_2():
     None
 
 def routine_1():
-    text5 = "Press B1 once"
-    text6 = "Turn rotating arm clockwise for 1 turn"
-    text7 = "Press B3 twice"
+    text5.value = "Press B1 once"
+    text6.value = "Turn rotating arm clockwise for 1 turn"
+    text7.value = "Press B3 twice"
     switch_screen(option5)
     leds[0].off()
 
 def routine_2():
-    text5 = "Turn rotating arm anti-clockwise for 1 turn"
-    text6 = "Press B2 twice"
-    text7 = "Turn rotating arm to the left"
+    text5.value= "Turn rotating arm anti-clockwise for 1 turn"
+    text6.value = "Press B2 twice"
+    text7.value = "Turn rotating arm to the left"
     switch_screen(option5)
     leds[1].off()
 
 def routine_3():
-    text5 = "Press B3 once"+ "/n" + "Turn the rotating arm to the right"+ "/n" + "Press B1 once"
+    text5.value = "Press B3 once"
+    text6.value = "Turn the rotating arm to the right"
+    text7.value = "Press B1 once"
     switch_screen(option5)
     leds[2].off()
 

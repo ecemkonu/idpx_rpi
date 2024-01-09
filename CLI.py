@@ -69,7 +69,7 @@ def diagnostic_1():
     prev_state = button_states[0]
     text4.value= "Step 1: Press Button 1"
     switch_screen(option4)
-    text4.after(500, check_button, args=[prev_state, 0])
+    text4.after(2000, check_button, args=[prev_state, 0])
     ## Press button 1
     ## Press button 3
     ## Rotate arm , write it as text and then rotate, say its completed without logic

@@ -138,7 +138,9 @@ all_screens.append(option4)
 # Option 5 box
 option5 = Box(app)
 text5 = Text(option5)
-button5 = PushButton(option5, text="Complete", command=switch_screen, args=[option0])
+text6 = Text(option5)
+text7 = Text(option5)
+button5 = PushButton(option5, text="Complete", command=switch_screen, args=[option0], align="bottom")
 all_screens.append(option5)
 
 # Add the screens to the menu box

@@ -57,26 +57,33 @@ def show_routine(selected_value):
     else:
         routine_3()
 
+def enable_option4():
+    option4_button.enable()
+
+
 def d1_s3():
     text4.value = "Step 3: Press button 3"
+    text4.after(3000, enable_option4)
+
 def d1_s2():
     text4.value = "Step 2: Rotate the arm to the left"
-    text4.after(2000, d1_s3)
+    text4.after(3000, d1_s3)
 
 def diagnostic_1():
     prev_state = button_states[0]
     text4.value= "Step 1: Press Button 1"
     switch_screen(option4)
-    text4.after(2000, d1_s2)
+    text4.after(3000, d1_s2)
 
+"""
 def diagnostic_2():
     text4.value = "Step 1: Press Button 3"
     switch_screen(option4)
     ## Controller to up
     ## Press button 2
     ## controller to left
-
     None
+"""
 
 def routine_1():
     text5.value = "Press B1 once"
@@ -104,7 +111,8 @@ def show_diagnostic(selected_value):
         if random.random() < .5:
             diagnostic_1()
         else:
-            diagnostic_2()
+            # diagnostic_2()
+            diagnostic_1() 
     else:
         switch_screen(option0)
 
@@ -155,6 +163,9 @@ all_screens.append(option3)
 # Option 4 box
 option4 = Box(app)
 text4 = Text(option4)
+option4_button = PushButton(option4, text="Completed", command=switch_screen, args=[option0], align="left")
+option4_button.disable()
+
 all_screens.append(option4)
 
 # Option 5 box

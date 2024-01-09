@@ -24,7 +24,7 @@ def switch_screen(switch_to):
     if switch_to == option2:
         text2.after(2000, diagnostic_found)
     if switch_to == option0:
-        light_led_at_random()
+        light_led_at_random(leds)
 
     
 def hide_all():

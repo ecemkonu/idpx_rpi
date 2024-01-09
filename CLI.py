@@ -9,7 +9,6 @@ buttons = []
 button_states = [0, 0, 0]
 for led_pin in led_pins:
     leds.append(LED(led_pin))
-
     
 for button_pin in button_pins:
     buttons.append(Button(button_pin))
@@ -26,13 +25,6 @@ def b3_pressed(button):
     button_states[2] += 1
     button_states[2] = button_states[2] % 2
 
-def check_button(prev_state, index):
-    curr_state = button_states[index]
-    if prev_state == curr_state:
-        diagnostic_1()
-    else:
-        if index == 0:
-            text4.value = "Step 2: Rotate the arm to the left"
 
 
 buttons[0].when_pressed = b1_pressed
@@ -65,15 +57,17 @@ def show_routine(selected_value):
     else:
         routine_3()
 
+def d1_s3():
+    text4.value = "Step 3: Press button 3"
+def d1_s2():
+    text4.value = "Step 2: Rotate the arm to the left"
+    text4.after(500, d1_s3)
+
 def diagnostic_1():
     prev_state = button_states[0]
     text4.value= "Step 1: Press Button 1"
     switch_screen(option4)
-    text4.after(2000, check_button, args=[prev_state, 0])
-    ## Press button 1
-    ## Press button 3
-    ## Rotate arm , write it as text and then rotate, say its completed without logic
-    None
+    text4.after(500, d1_s2)
 
 def diagnostic_2():
     text4.value = "Step 1: Press Button 3"
